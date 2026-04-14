@@ -317,7 +317,28 @@ html.dark-mode .icon-dark {
     text-decoration: underline;
     opacity: 0.8;
 }
+.skills {
+    margin-top: 1rem;
+}
 
+.skill-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.skill-label {
+    min-width: 120px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.skill-badges img {
+    height: 18px;
+    margin: 1px 4px 1px 0;
+}
 /* Mobile */
 @media (max-width: 640px) {
     :root {
