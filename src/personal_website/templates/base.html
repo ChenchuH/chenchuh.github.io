@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Chenchu{% endblock %}</title>
 
+    <!-- Prevent flash of wrong theme -->
     <script>
         (function () {
             const saved = localStorage.getItem("theme");
@@ -16,6 +17,7 @@
         })();
     </script>
 
+    <!-- Turbo -->
     <script type="module">
         import "https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.23/+esm";
     </script>
@@ -128,8 +130,31 @@
             });
         }
 
+        function setupPageTransitions() {
+            const container = document.querySelector(".container");
+            if (!container) return;
+
+            container.classList.add("is-entering");
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    container.classList.remove("is-entering");
+                });
+            });
+        }
+
         document.addEventListener("DOMContentLoaded", setupTheme);
         document.addEventListener("turbo:load", setupTheme);
+
+        document.addEventListener("DOMContentLoaded", setupPageTransitions);
+        document.addEventListener("turbo:load", setupPageTransitions);
+
+        document.addEventListener("turbo:before-visit", () => {
+            const container = document.querySelector(".container");
+            if (container) {
+                container.classList.add("is-leaving");
+            }
+        });
     </script>
 </body>
 </html>
