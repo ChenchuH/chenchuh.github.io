@@ -1,1 +1,74 @@
 {% extends "base.html" %}
+
+{% block title %}Projects - Chenchu{% endblock %}
+
+{% block page_title %}
+<h1>Projects</h1>
+{% endblock %}
+
+{% block page_subtitle %}
+<p class="subtitle">Small tools and experiments built in my free time.</p>
+{% endblock %}
+
+{% block content %}
+
+<div class="projects-grid">
+
+    <div class="card">
+        <h3>WeatherCLI</h3>
+        <p>
+            A lightweight command-line tool for retrieving weather data quickly from the terminal.
+            Built for speed and simplicity in daily use.
+        </p>
+        <p>
+            <a href="https://github.com/ChenchuH/WeatherCLI" target="_blank">View on GitHub →</a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>KSP Calcs</h3>
+        <p>
+            A collection of calculation tools inspired by Kerbal Space Program.
+            Focused on orbital mechanics and physics-based utilities.
+        </p>
+        <p>
+            <a href="https://github.com/ChenchuH/KSP_Calcs" target="_blank">View on GitHub →</a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>CLIChat</h3>
+        <p>
+            A terminal-based chat interface designed for simple, fast interaction.
+            Explores minimal UI design within a command-line environment.
+        </p>
+        <p>
+            <a href="https://github.com/ChenchuH/CLIChat" target="_blank">View on GitHub →</a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Raman Spectra Visualization Tool</h3>
+        <p>
+            A visualization tool for analyzing Raman spectroscopy data.
+            Built to support research workflows and data interpretation.
+        </p>
+        <p>
+            <a href="https://github.com/ChenchuH/RamanSpectraVisTool" target="_blank">View on GitHub →</a>
+        </p>
+    </div>
+
+</div>
+
+<p>
+    <br>
+    Most of these projects are small, practical tools built to solve specific problems or explore ideas.
+    More polished and larger-scale work will be added over time.
+</p>
+
+<p>
+    Full repository list:
+    <a href="https://github.com/ChenchuH" target="_blank">github.com/ChenchuH</a>
+</p>
+
+{% endblock %}
