@@ -1,42 +1,47 @@
 {% extends "base.html" %}
+
+{% block title %}Home - Chenchu{% endblock %}
+
+{% block page_title %}
+<h1>About This Page</h1>
+{% endblock %}
+
+{% block page_subtitle %}
+<p class="subtitle">Undergraduate physicist at CSULB · Python hobbyist · Nanoelectronics lab</p>
+{% endblock %}
+
 {% block content %}
+<p>
+    Welcome to my webpage. I'm an undergraduate physicist at California State University, Long Beach, working in the CSULB Nanoelectronics Lab.
+    I am also a hobbyist Python developer, creating practical tools in an attempt to optimize my day-to-day workflows.
+</p>
 
-<div class="content">
-    <h1>About This Page -</h1>
+<p>
+    Currently, my work revolves around the spectroscopic characterization of van der Waals materials such as platinum ditelluride and graphene.
+</p>
 
-    <p>
-        Welcome to my webpage, I'm an undergraduate physcist at California State University Long Beach, working in the CSULB Nanoelectronics lab. 
-        I am also a hobbiest python developer, creating practical tools in an attempt to optimize my day to day workflows. 
-    </p>
+<p>
+    Once I get around to building everything up, this website will be a place to host projects, thoughts, and contact information — a small corner of the internet
+    to serve as my portable CV and archive. Relevant contact information can be found in the footer, and please feel free to reach out.
+</p>
 
-    <p>
-        Currently my work revolves around the spectroscopic charecterization of Van Der wals materials Platinum Dietelluride and Graphine.
-    <p>
-       Once I get around to building everything up. This website will be a place to host projects, thoughts and contact informations, a little corner of the internet 
-       to server as my "portable" CV and archive. Relevant contact information can be found in the footer, if anything please feel free to reach out!
-    </p>
+<p>
+    As of now, there is no planned timeline yet. This was mostly a fun little exercise in web development to distract from my physics research and midterms.
+</p>
 
-    <p>
-        As pf now, there is no planned timeline yet, this was mostly a fun little excerise on web development to distract from my physics research and midterms.
-    </p>
+<p>
+    For those more curious, you can find the repo that this webpage deploys from on my GitHub, linked in the footer. It's essentially a Flask server that renders a static webpage.
+    Nothing complicated — just basic HTML and CSS along with a little JavaScript for routing cache and the dark mode toggle.
+    Flask mostly saves me time and makes the pages more readable, since every page extends a shared <code>base.html</code> template.
+    The code is open source and free to use as you see fit, though the site content itself is not.
+</p>
 
-    <p>
-        For those more curious, you can find the repo that this webpage deploys from in my github (link in the footer), it's essentially a flask server that renders a static webpage. 
-        Nothing complicated, essentially just basic HTML and CSS along with a little JavaScript for the routing cache and the dark mode toggle.
-        The Flask framework just saves me time and makes the pages more redable, every page is an extension of a "base.html" with user defined edits. The code is completely open source,
-        and free to use as you see fit, just the content itself is not to be used. 
-    </p>
+<p>
+    Until the site is fully set up, please find my <strong>resume</strong> here:
+    <a href="{{ url_for('static', filename='sources/CHYS_Resume.pdf') }}" download="CHYS_Resume.pdf">Download</a>
+</p>
 
-    <p> 
-        Until fully setup, please find my <b>resume</b> attached here 
-        <a href="{{ url_for('static', filename='sources/CHYS_Resume.pdf') }}" download="CHYS_Resume.pdf">Download</a>
-    </p>
-
-    <p>
-        - Chenchu Hemanth Yakasiri Saravanan
-    </p>
-</div>
-
-
-
-{% endblock %}~
+<p>
+    — Chenchu Hemanth Yakasiri Saravanan
+</p>
+{% endblock %}
