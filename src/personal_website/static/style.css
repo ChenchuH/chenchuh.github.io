@@ -11,7 +11,7 @@ body {
     --border: #d9d9d9;
     --link: #111111;
     --accent: #4f8cff;
-    --footer-text: #555555;
+    --footer-text: #111111;
     --card-bg: #ffffff;
     --content-width: 680px;
     --side-padding: 20px;
@@ -24,7 +24,7 @@ html.dark-mode {
     --border: #333333;
     --link: #f1f1f1;
     --accent: #7fb0ff;
-    --footer-text: #bdbdbd;
+    --footer-text: #fffefe;
     --card-bg: #1b1b1b;
 }
 
@@ -39,30 +39,42 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Shared width */
-.navbar,
-.content,
-.footer-navbar {
+/* ===== Layout Containers ===== */
+
+/* Only content is constrained */
+.content {
     max-width: var(--content-width);
     margin: 0 auto;
+    padding: 20px var(--side-padding);
     box-sizing: border-box;
     width: 100%;
 }
 
-/* Header */
-.site-header {
-    border-bottom: none;
+/* Navbar + Footer are FULL WIDTH */
+.navbar,
+.footer-navbar {
+    width: 100%;
+    background-color: #78a7ff;
 }
 
-.navbar {
-    padding: 1rem var(--side-padding);
+/* Inner wrapper to keep content centered */
+.nav-inner,
+.footer-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 24px;
+    justify-content: space-between;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+/* ===== Header ===== */
+
+.navbar {
+    padding: 1rem 0;
     font-size: 15px;
-    border-bottom: 2px solid var(--border);
-    transition: border-color 0.2s ease;
 }
 
 .nav-left,
@@ -91,37 +103,30 @@ body {
     font-weight: 600;
 }
 
-/* Main + Page Transition */
+/* ===== Page Transition ===== */
+
 .container {
     flex: 1;
     width: 100%;
-    box-sizing: border-box;
     padding: 2.5rem 0;
+    box-sizing: border-box;
 
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.container.is-leaving {
-    opacity: 0;
-    transform: translateY(8px);
-}
-
+.container.is-leaving,
 .container.is-entering {
     opacity: 0;
     transform: translateY(8px);
 }
 
-.content {
-    padding: 20px var(--side-padding);
-    text-align: left;
-}
+/* ===== Typography ===== */
 
 .content h1 {
     margin-top: 0;
     margin-bottom: 0.75rem;
-    text-align: left;
     font-size: 2.2rem;
     font-weight: 600;
     line-height: 1.15;
@@ -133,7 +138,6 @@ body {
     margin-bottom: 0.65rem;
     font-size: 1.4rem;
     font-weight: 600;
-    line-height: 1.2;
 }
 
 .content h3 {
@@ -141,7 +145,6 @@ body {
     margin-bottom: 0.55rem;
     font-size: 1.1rem;
     font-weight: 600;
-    line-height: 1.25;
 }
 
 .content p {
@@ -153,7 +156,7 @@ body {
 .content a {
     color: var(--accent);
     text-underline-offset: 3px;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .content a:hover {
@@ -161,22 +164,12 @@ body {
 }
 
 .subtitle {
-    margin-top: 0;
     margin-bottom: 2rem;
     font-size: 1rem;
     color: var(--muted);
 }
 
-.center-text-temp {
-    text-align: center;
-    font-size: 50px;
-    margin-top: 35vh;
-}
-
-/* Projects */
-.hero {
-    margin-top: 60px;
-}
+/* ===== Cards / Projects ===== */
 
 .projects-grid {
     display: grid;
@@ -188,27 +181,18 @@ body {
     border: 1px solid var(--border);
     padding: 20px;
     background-color: var(--card-bg);
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .card:hover {
     transform: translateY(-2px);
 }
 
-/* Footer */
-.footer {
-    border-top: none;
-}
+/* ===== Footer ===== */
 
 .footer-navbar {
-    padding: 20px var(--side-padding);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    border-top: 2px solid var(--border);
+    padding: 20px 0;
     color: var(--footer-text);
-    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .footer-copy {
@@ -217,66 +201,35 @@ body {
 
 .footer-links {
     display: flex;
-    align-items: center;
     gap: 15px;
 }
 
 .footer-links a {
-    position: relative;
     width: 32px;
     height: 32px;
+    position: relative;
     display: inline-block;
-    text-decoration: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.footer-links a:hover {
-    opacity: 0.8;
-    transform: translateY(-1px);
 }
 
 .footer-links img {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    inset: 0;
-    width: 32px;
-    height: 32px;
-    display: block;
-    transition: opacity 0.2s ease;
 }
 
-.icon-light {
-    opacity: 1;
-}
+.icon-light { opacity: 1; }
+.icon-dark { opacity: 0; }
 
-.icon-dark {
-    opacity: 0;
-}
+html.dark-mode .icon-light { opacity: 0; }
+html.dark-mode .icon-dark { opacity: 1; }
 
-html.dark-mode .icon-light {
-    opacity: 0;
-}
+/* ===== Theme Toggle ===== */
 
-html.dark-mode .icon-dark {
-    opacity: 1;
-}
-
-/* Theme toggle */
 #theme-toggle {
-    border: 0;
+    border: none;
     background: none;
-    padding: 0;
-    margin: 0;
-    color: var(--text);
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
-}
-
-#theme-toggle:hover {
-    opacity: 0.8;
-    transform: translateY(-1px);
+    color: var(--text);
 }
 
 #theme-toggle svg {
@@ -284,49 +237,17 @@ html.dark-mode .icon-dark {
     height: 1.35rem;
 }
 
-/* Optional contact page styles */
-.contacts-navs a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: opacity 0.2s ease, color 0.2s ease;
-}
+/* ===== Skills ===== */
 
-.contacts-navs a:hover {
-    opacity: 0.75;
-}
-
-.contact-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.contact {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.contact-links a {
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.2s ease, color 0.2s ease;
-}
-
-.contact-links a:hover {
-    text-decoration: underline;
-    opacity: 0.8;
-}
 .skills {
     margin-top: 1rem;
 }
 
 .skill-row {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 0.4rem;
-    flex-wrap: wrap;
 }
 
 .skill-label {
@@ -337,58 +258,46 @@ html.dark-mode .icon-dark {
 
 .skill-badges img {
     height: 18px;
-    margin: 1px 4px 1px 0;
+    margin-right: 4px;
 }
+
+/* ===== Music ===== */
+
 .music-section {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.music-section h1 {
-  font-size: 28px;
-  margin-bottom: 5px;
-}
-
-.subtitle {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .album-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 5px;
-  max-width: 500px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 5px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .album-card img {
-  width: 100%;
-  border-radius: 10px;
-  display: block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
 }
 
 .album-card img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transform: scale(1.05);
 }
 
-/* Mobile */
+/* ===== Mobile ===== */
+
 @media (max-width: 640px) {
     :root {
         --side-padding: 16px;
         --content-width: 100%;
     }
 
-    .navbar,
-    .footer-navbar {
-        font-size: 14px;
-    }
-
-    .container {
-        padding: 2rem 0;
+    .nav-inner,
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
     }
 
     .content h1 {
@@ -399,24 +308,12 @@ html.dark-mode .icon-dark {
         font-size: 1.25rem;
     }
 
-    .footer-navbar {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contact-navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
     .skill-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 6px;
     }
 
-     .skill-label {
+    .skill-label {
         min-width: 0;
     }
 }
