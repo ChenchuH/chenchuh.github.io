@@ -40,6 +40,13 @@
                 >
                     Projects
                 </a>
+
+                <a 
+                    href="{{ url_for('favorites') }}"
+                    class="{% if request.endpoint == 'favorites' %}active{% endif %}"
+                >
+                    Favorites
+                </a>
             </div>
 
             <div class="nav-right">

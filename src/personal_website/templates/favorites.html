@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="music-section">
+  <p class="subtitle">The Best *ENGLISH* Albums to Grace Our Planet</p>
+
+  <div class="album-grid">
+    <a href="https://open.spotify.com/album/4oL7pMxnb04uuRI7ReXmuh" target="_blank" class="album-card">
+      <img src="{{ url_for('static', filename='images/WhoReallyCars_TvGirl.jpg') }}">
+    </a>
+
+    <a href="https://open.spotify.com/album/2sij95QgjmgrhNv33achzn" target="_blank" class="album-card">
+      <img src="{{ url_for('static', filename='images/SaladDays_MarcDeMarco.jpg') }}">
+    </a>
+
+    <a href="https://open.spotify.com/album/65edimIChzNNK8VGn56pIK" target="_blank" class="album-card">
+      <img src="{{ url_for('static', filename='images/Nectar_Joji.jpg') }}">
+    </a>
+
+    <a href="https://open.spotify.com/album/6YabPKtZAjxwyWbuO9p4ZD" target="_blank" class="album-card">
+      <img src="{{ url_for('static', filename='images/Highway_61_Revisted _Bob_Dylan.jpg') }}">
+    </a>
+  </div>
+</div>
+
+{% endblock %}

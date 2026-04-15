@@ -14,5 +14,9 @@ def home():
 def projects():
     return render_template("projects.html", year = datetime.now().year)
 
+@app.route("/favorites/")
+def favorites():
+    return render_template("favorites.html", year = datetime.now().year)
+
 if __name__ == "__main__":
     app.run(debug=True)
